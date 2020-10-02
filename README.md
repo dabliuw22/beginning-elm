@@ -8,9 +8,11 @@
 
 3. `.elm` to `.js`:
     `elm make src/HomePage.elm --output elm.js`
+    `elm make src/Signup.elm --output signup.js`
 
 4. Install dependency:
     `elm install elm/http`
+    `elm install rtfeldman/elm-css`
 
 5. Build with server -> http://localhost:8000:
     `elm reactor`
