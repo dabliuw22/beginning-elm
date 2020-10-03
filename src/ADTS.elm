@@ -20,6 +20,14 @@ type Person
         }
 
 
+person : Person
+person =
+    Person
+        { id = "P1"
+        , name = "N1"
+        }
+
+
 product : Product
 product =
     Product "id1" "name1"
