@@ -7,7 +7,7 @@ import Html.Events exposing (onInput)
 
 
 type alias Model =
-    { text : String }
+    { value : String }
 
 
 type Msg
@@ -45,21 +45,21 @@ printText : Model -> Html msg
 printText model =
     let
         styles =
-            if String.length model.text <= 10 then
+            if String.length model.value <= 10 then
                 validStyle
 
             else
                 invalidStyle
     in
     div ([] ++ styles)
-        [ text model.text ]
+        [ text model.value ]
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
         Text txt ->
-            { model | text = txt }
+            { model | value = txt }
 
 
 main : Program () Model Msg
