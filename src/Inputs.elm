@@ -30,8 +30,17 @@ view : Model -> Html Msg
 view model =
     div []
         [ input [ type_ "text", placeholder "Type text here", onInput Text ] []
-        , div ([] ++ textStyle) [ text model.text ]
+        , div ([] ++ textStyle) [ printText model ]
         ]
+
+
+printText : Model -> Html msg
+printText model =
+    if String.length model.text <= 10 then
+        text model.text
+
+    else
+        text "Invalid"
 
 
 update : Msg -> Model -> Model
