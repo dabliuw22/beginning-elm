@@ -14,10 +14,17 @@ type Msg
     = Text String
 
 
-textStyle : List (Attribute msg)
-textStyle =
-    [ style "font-size" "50px"
+validStyle : List (Attribute msg)
+validStyle =
+    [ style "font-size" "30px"
     , style "color" "sandybrown"
+    ]
+
+
+invalidStyle : List (Attribute msg)
+invalidStyle =
+    [ style "font-size" "50px"
+    , style "color" "red"
     ]
 
 
@@ -30,17 +37,19 @@ view : Model -> Html Msg
 view model =
     div []
         [ input [ type_ "text", placeholder "Type text here", onInput Text ] []
-        , div ([] ++ textStyle) [ printText model ]
+        , printText model
         ]
 
 
 printText : Model -> Html msg
 printText model =
     if String.length model.text <= 10 then
-        text model.text
+        div ([] ++ validStyle)
+            [ text model.text ]
 
     else
-        text "Invalid"
+        div ([] ++ invalidStyle)
+            [ text model.text ]
 
 
 update : Msg -> Model -> Model
