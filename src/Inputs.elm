@@ -1,8 +1,8 @@
 module Inputs exposing (..)
 
 import Browser
-import Html exposing (Html, div, input, text)
-import Html.Attributes exposing (..)
+import Html exposing (Attribute, Html, div, input, text)
+import Html.Attributes exposing (placeholder, style, type_)
 import Html.Events exposing (onInput)
 
 
@@ -14,6 +14,13 @@ type Msg
     = Text String
 
 
+textStyle : List (Attribute msg)
+textStyle =
+    [ style "font-size" "50px"
+    , style "color" "sandybrown"
+    ]
+
+
 init : Model
 init =
     Model ""
@@ -22,8 +29,8 @@ init =
 view : Model -> Html Msg
 view model =
     div []
-        [ input [ placeholder "Type text here", onInput Text ] []
-        , div [] [ text model.text ]
+        [ input [ type_ "text", placeholder "Type text here", onInput Text ] []
+        , div ([] ++ textStyle) [ text model.text ]
         ]
 
 
