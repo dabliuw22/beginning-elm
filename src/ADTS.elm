@@ -1,4 +1,4 @@
-module ADTS exposing (Maybe(..), Person(..), Product, fromMaybe)
+module ADTS exposing (Maybe(..), Person(..), Product, fromMaybe, getId, person, product)
 
 -- Record
 
@@ -7,6 +7,11 @@ type alias Product =
     { id : String
     , name : String
     }
+
+
+getId : Product -> String
+getId p =
+    p.id
 
 
 

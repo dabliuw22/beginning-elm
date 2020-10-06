@@ -16,7 +16,7 @@
     `elm install rtfeldman/elm-css`
     `elm intall elm/random`
 
-5. Build with server -> http://localhost:8000:
+5. Run debugging -> http://localhost:8000:
     `elm reactor`
 
 6. Test:
