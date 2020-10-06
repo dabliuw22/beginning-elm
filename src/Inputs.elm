@@ -43,13 +43,16 @@ view model =
 
 printText : Model -> Html msg
 printText model =
-    if String.length model.text <= 10 then
-        div ([] ++ validStyle)
-            [ text model.text ]
+    let
+        styles =
+            if String.length model.text <= 10 then
+                validStyle
 
-    else
-        div ([] ++ invalidStyle)
-            [ text model.text ]
+            else
+                invalidStyle
+    in
+    div ([] ++ styles)
+        [ text model.text ]
 
 
 update : Msg -> Model -> Model
