@@ -1,4 +1,4 @@
-module Inputs exposing (..)
+module Inputs exposing (main)
 
 import Browser
 import Html exposing (Attribute, Html, div, input, text)
